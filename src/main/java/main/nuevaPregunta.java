@@ -4,17 +4,72 @@
  */
 package main;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 /**
  *
  * @author Alumno Tarde
  */
 public class nuevaPregunta extends javax.swing.JPanel {
-
+    Connection connection = null;
+    Statement statement = null;
+    private Connection connect() {
+        Connection conn = null;
+        try{
+            conn = DriverManager.getConnection("jdbc:sqlite:database.db");
+        }catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return conn;
+    }
     /**
      * Creates new form nuevaPregunta
      */
     public nuevaPregunta() {
         initComponents();
+    }
+    
+    public String getPregunta() {
+        return textPregunta.getText();
+    }
+    
+    public void setPregunta (String pregunta){
+        textPregunta.setText(pregunta);
+    }
+    
+    public String getCorrecta() {
+        return textCorrecta.getText();
+    }
+    
+    public void setCorrecta (String correcta){
+        textCorrecta.setText(correcta);
+    }
+    
+    public String getErronea1() {
+        return textErronea1.getText();
+    }
+    
+    public void setErronea1 (String Erronea1){
+        textErronea1.setText(Erronea1);
+    }
+    
+    public String getErronea2() {
+        return textErronea2.getText();
+    }
+    
+    public void setErronea2 (String Erronea2){
+        textErronea2.setText(Erronea2);
+    }
+    
+    public String getErronea3() {
+        return textErronea3.getText();
+    }
+    
+    public void setErronea3 (String Erronea3){
+        textErronea3.setText(Erronea3);
     }
 
     /**
@@ -36,7 +91,7 @@ public class nuevaPregunta extends javax.swing.JPanel {
         textErronea1 = new javax.swing.JTextField();
         textErronea2 = new javax.swing.JTextField();
         textErronea3 = new javax.swing.JTextField();
-        labelID = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jLabel1.setText("Pregunta: ");
 
@@ -48,7 +103,12 @@ public class nuevaPregunta extends javax.swing.JPanel {
 
         jLabel5.setText("Respuesta Incorrecta 3:");
 
-        labelID.setText("ID de la pregunta Creada: ");
+        jButton1.setText("Aceptar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -57,7 +117,6 @@ public class nuevaPregunta extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(labelID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -65,7 +124,7 @@ public class nuevaPregunta extends javax.swing.JPanel {
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, 195, Short.MAX_VALUE)
+                            .addComponent(textPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                             .addComponent(textCorrecta)
                             .addComponent(textErronea1)))
                     .addGroup(layout.createSequentialGroup()
@@ -75,7 +134,10 @@ public class nuevaPregunta extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(18, 18, 18)
-                        .addComponent(textErronea3)))
+                        .addComponent(textErronea3))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -101,20 +163,41 @@ public class nuevaPregunta extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(textErronea3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
-                .addComponent(labelID)
-                .addContainerGap())
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String empty = "";
+        try {
+            connection = this.connect();
+            statement = connection.createStatement();
+            statement.setQueryTimeout(20);
+            String queryInsert = "INSERT INTO ListaPreguntas (Pregunta, Correcta, Erronea1, Erronea2, Erronea3) VALUES ('"+getPregunta()+"', '"+getCorrecta()+"', '"+getErronea1()+"', '"+getErronea2()+"', '"+getErronea3()+"')";
+            ResultSet rs = statement.executeQuery(queryInsert);
+        }
+        catch(SQLException e) {
+            System.err.println(e.getMessage());
+        }
+            
+            setPregunta(empty);
+            setCorrecta(empty);
+            setErronea1(empty);
+            setErronea2(empty);
+            setErronea3(empty);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel labelID;
     private javax.swing.JTextField textCorrecta;
     private javax.swing.JTextField textErronea1;
     private javax.swing.JTextField textErronea2;
