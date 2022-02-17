@@ -28,36 +28,36 @@ public class formularioNuevaPregunta extends javax.swing.JFrame {
 
         jMenu2 = new javax.swing.JMenu();
         nuevaPregunta1 = new main.nuevaPregunta();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menuNuevaPregunta = new javax.swing.JMenuBar();
+        itemNavegacion = new javax.swing.JMenu();
+        ViajarAMenusPrincipal = new javax.swing.JMenuItem();
+        ViajarANuevoTest = new javax.swing.JMenuItem();
 
         jMenu2.setText("jMenu2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Navegación");
+        itemNavegacion.setText("Navegación");
 
-        jMenuItem1.setText("Menú Principal");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        ViajarAMenusPrincipal.setText("Menú Principal");
+        ViajarAMenusPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                ViajarAMenusPrincipalActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        itemNavegacion.add(ViajarAMenusPrincipal);
 
-        jMenuItem2.setText("Empezar Test");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        ViajarANuevoTest.setText("Empezar Test");
+        ViajarANuevoTest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                ViajarANuevoTestActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        itemNavegacion.add(ViajarANuevoTest);
 
-        jMenuBar1.add(jMenu1);
+        menuNuevaPregunta.add(itemNavegacion);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuNuevaPregunta);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -65,13 +65,13 @@ public class formularioNuevaPregunta extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nuevaPregunta1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(nuevaPregunta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(nuevaPregunta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
@@ -79,17 +79,19 @@ public class formularioNuevaPregunta extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void ViajarAMenusPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViajarAMenusPrincipalActionPerformed
         // TODO add your handling code here:
+        //Nos movemos al menú principal
         new mainMenu().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_ViajarAMenusPrincipalActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void ViajarANuevoTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViajarANuevoTestActionPerformed
         // TODO add your handling code here:
+        //Nos movemos a un nuevo test
         new testTrivia().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_ViajarANuevoTestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -127,11 +129,11 @@ public class formularioNuevaPregunta extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem ViajarAMenusPrincipal;
+    private javax.swing.JMenuItem ViajarANuevoTest;
+    private javax.swing.JMenu itemNavegacion;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuBar menuNuevaPregunta;
     private main.nuevaPregunta nuevaPregunta1;
     // End of variables declaration//GEN-END:variables
 }

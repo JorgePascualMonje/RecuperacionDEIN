@@ -26,34 +26,34 @@ public class testTrivia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        menuTest = new javax.swing.JMenuBar();
+        itemNavegacion = new javax.swing.JMenu();
+        viajarMenuPrincipal = new javax.swing.JMenuItem();
+        viajarNuevaPregunta = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jMenu1.setText("Navegación");
+        itemNavegacion.setText("Navegación");
 
-        jMenuItem1.setText("Menú Principal");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        viajarMenuPrincipal.setText("Menú Principal");
+        viajarMenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                viajarMenuPrincipalActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        itemNavegacion.add(viajarMenuPrincipal);
 
-        jMenuItem2.setText("Crear Pregunta");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        viajarNuevaPregunta.setText("Crear Pregunta");
+        viajarNuevaPregunta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                viajarNuevaPreguntaActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        itemNavegacion.add(viajarNuevaPregunta);
 
-        jMenuBar1.add(jMenu1);
+        menuTest.add(itemNavegacion);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuTest);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,17 +69,17 @@ public class testTrivia extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    private void viajarNuevaPreguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viajarNuevaPreguntaActionPerformed
         // TODO add your handling code here:
         new formularioNuevaPregunta().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_viajarNuevaPreguntaActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void viajarMenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viajarMenuPrincipalActionPerformed
         // TODO add your handling code here:
         new mainMenu().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_viajarMenuPrincipalActionPerformed
 
     /**
      * @param args the command line arguments
@@ -117,9 +117,9 @@ public class testTrivia extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenu itemNavegacion;
+    private javax.swing.JMenuBar menuTest;
+    private javax.swing.JMenuItem viajarMenuPrincipal;
+    private javax.swing.JMenuItem viajarNuevaPregunta;
     // End of variables declaration//GEN-END:variables
 }

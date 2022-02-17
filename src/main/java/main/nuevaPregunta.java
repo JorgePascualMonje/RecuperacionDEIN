@@ -4,6 +4,7 @@
  */
 package main;
 
+//Imports necesarios para la conexión con la base de datos
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -14,6 +15,7 @@ import java.sql.Statement;
  * @author Alumno Tarde
  */
 public class nuevaPregunta extends javax.swing.JPanel {
+    //Preparación para la conexión con la base de datos
     Connection connection = null;
     Statement statement = null;
     private Connection connect() {
@@ -31,6 +33,9 @@ public class nuevaPregunta extends javax.swing.JPanel {
     public nuevaPregunta() {
         initComponents();
     }
+    
+    //Funciones para recibir y cambiar el texto escrito dentro de los diferentes
+    //cuadors de texto
     
     public String getPregunta() {
         return textPregunta.getText();
@@ -81,32 +86,32 @@ public class nuevaPregunta extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        labelPregunta = new javax.swing.JLabel();
+        labelCorrecta = new javax.swing.JLabel();
+        labelErronea1 = new javax.swing.JLabel();
+        labelErronea2 = new javax.swing.JLabel();
+        labelErronea3 = new javax.swing.JLabel();
         textPregunta = new javax.swing.JTextField();
         textCorrecta = new javax.swing.JTextField();
         textErronea1 = new javax.swing.JTextField();
         textErronea2 = new javax.swing.JTextField();
         textErronea3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        botonAceptar = new javax.swing.JButton();
 
-        jLabel1.setText("Pregunta: ");
+        labelPregunta.setText("Pregunta: ");
 
-        jLabel2.setText("Respuesta Correcta:");
+        labelCorrecta.setText("Respuesta Correcta:");
 
-        jLabel3.setText("Respuesta Incorrecta 1:");
+        labelErronea1.setText("Respuesta Incorrecta 1:");
 
-        jLabel4.setText("Respuesta Incorrecta 2:");
+        labelErronea2.setText("Respuesta Incorrecta 2:");
 
-        jLabel5.setText("Respuesta Incorrecta 3:");
+        labelErronea3.setText("Respuesta Incorrecta 3:");
 
-        jButton1.setText("Aceptar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        botonAceptar.setText("Aceptar");
+        botonAceptar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                botonAceptarActionPerformed(evt);
             }
         });
 
@@ -119,25 +124,25 @@ public class nuevaPregunta extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(labelPregunta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelCorrecta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelErronea1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textPregunta, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
                             .addComponent(textCorrecta)
                             .addComponent(textErronea1)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
+                        .addComponent(labelErronea2)
                         .addGap(18, 18, 18)
                         .addComponent(textErronea2))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(labelErronea3)
                         .addGap(18, 18, 18)
                         .addComponent(textErronea3))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)))
+                        .addComponent(botonAceptar)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -145,59 +150,61 @@ public class nuevaPregunta extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(labelPregunta)
                     .addComponent(textPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(labelCorrecta)
                     .addComponent(textCorrecta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(labelErronea1)
                     .addComponent(textErronea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(labelErronea2)
                     .addComponent(textErronea2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(labelErronea3)
                     .addComponent(textErronea3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(botonAceptar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void botonAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAceptarActionPerformed
         // TODO add your handling code here:
         String empty = "";
         try {
+            //Nos conectamos a la base de datos
             connection = this.connect();
             statement = connection.createStatement();
             statement.setQueryTimeout(20);
+            //Insertamos los datos en la base
             String queryInsert = "INSERT INTO ListaPreguntas (Pregunta, Correcta, Erronea1, Erronea2, Erronea3) VALUES ('"+getPregunta()+"', '"+getCorrecta()+"', '"+getErronea1()+"', '"+getErronea2()+"', '"+getErronea3()+"')";
             ResultSet rs = statement.executeQuery(queryInsert);
         }
         catch(SQLException e) {
             System.err.println(e.getMessage());
         }
-            
+            //Limpiamos los cuadros de texto
             setPregunta(empty);
             setCorrecta(empty);
             setErronea1(empty);
             setErronea2(empty);
             setErronea3(empty);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_botonAceptarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JButton botonAceptar;
+    private javax.swing.JLabel labelCorrecta;
+    private javax.swing.JLabel labelErronea1;
+    private javax.swing.JLabel labelErronea2;
+    private javax.swing.JLabel labelErronea3;
+    private javax.swing.JLabel labelPregunta;
     private javax.swing.JTextField textCorrecta;
     private javax.swing.JTextField textErronea1;
     private javax.swing.JTextField textErronea2;
